@@ -3,16 +3,17 @@ The script downloads log files from RTU, archives them and sends an e-mail messa
 
 # Variable parameters:
 In archchecker.py file:
-- self.FTP_PATH="/pub/data/"
-- recipients=["to_1@email.ku", "tu_2@email.ku"]
-- server=smtplib.SMTP("192.168.1.1")
-- self.LOG_PATH=u"K:\путь к сетевой\папке"
-- self.LOG_PATH=u"/mnt/control"w
-
-        cmd="sudo mount -t cifs "
-        cmd += "//192.168.1.1/Share/путь\ к\ сетевой/папке "
-        cmd += self.LOG_PATH+" "
-        cmd += "-o username=my-username," 
-        cmd += "domain=mydomain,"                   
-        cmd += "password=MyPassword," 
-        cmd += "uid=1005,gid=1005" 
+- self.FTP_PATH - path to logs on RTU;
+- recipients - List of recipients of email alerts;
+- server - Mail (SMTP) server address;
+- self.LOG_PATH - Path to the directory where to save the archives of log files;
+- Mount options for the remote directory (optional). See man mount.cifs.
+``` bash
+cmd="sudo mount -t cifs "
+cmd += "//192.168.1.1/Share/путь\ к\ сетевой/папке "
+cmd += self.LOG_PATH+" "
+cmd += "-o username=my-username," 
+cmd += "domain=mydomain,"                   
+cmd += "password=MyPassword," 
+cmd += "uid=1005,gid=1005"
+```
