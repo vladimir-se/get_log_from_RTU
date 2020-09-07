@@ -21,4 +21,6 @@ cmd += "uid=1005,gid=1005"
 In get-arch.py file  is the same as in the file archchecker.py.
 
 Syntax for ges_ip.txt file:
+```bash
 Object name or RTU name***:***ip-addresses separated by commas
+```
